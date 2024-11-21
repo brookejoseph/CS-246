@@ -98,23 +98,3 @@ public:
         return drawable->draw() + " in Bold";
     }
 };
-
-// Usage
-int main()
-{
-    // Create a text object and decorate it
-    auto text = std::make_shared<Text>("Hello World");
-    auto boldText = std::make_shared<BoldDecorator>(text);
-    auto borderedBoldText = std::make_shared<BorderDecorator>(boldText);
-
-    std::cout << borderedBoldText->draw() << std::endl; // Output: Text: Hello World in Bold with Border
-
-    // Create an image object and decorate it
-    auto image = std::make_shared<Image>("photo.jpg");
-    auto shadowedImage = std::make_shared<ShadowDecorator>(image);
-    auto borderedShadowedImage = std::make_shared<BorderDecorator>(shadowedImage);
-
-    std::cout << borderedShadowedImage->draw() << std::endl; // Output: Image: photo.jpg with Shadow with Border
-
-    return 0;
-}
