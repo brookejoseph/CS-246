@@ -73,15 +73,28 @@ public:
     }
 };
 
+class K
+{
+private:
+    int val;
+
+public:
+    K(int val) : val{val}
+    {
+        std::cout << "ctor of k" << std::endl;
+    };
+};
+
 class A : public B
 {
 private:
     int *data;
     size_t size;
+    K k;
 
 public:
     // Default Constructor
-    A() : B(), data(nullptr), size(0)
+    A() : B(), data(nullptr), size(0), k(0)
     {
         std::cout << "Default Constructor of A\n";
     }
@@ -94,7 +107,7 @@ public:
     }
 
     // Copy Constructor
-    A(const A &other) : B(other), size(other.size)
+    A(const A &other) : B(other), size(other.size), k(other.k)
     {
         if (other.data)
         {
@@ -131,7 +144,7 @@ public:
     }
 
     // Move Constructor
-    A(A &&other) noexcept : B(std::move(other)), data(other.data), size(other.size)
+    A(A &&other) noexcept : B(std::move(other)), data(other.data), size(other.size), k(other.k)
     {
         other.data = nullptr;
         other.size = 0;

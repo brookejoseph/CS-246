@@ -15,7 +15,5 @@ class WeatherDisplays
     vector<Weather> currentTemp;
 
 public:
-    void changeTemp(const int &temp)
-    {
-    }
+    void changeTemp(const int &temp) {};
 };
