@@ -24,10 +24,7 @@ protected:
 
 public:
     CoffeeDec(Coffee *next) : next(next) {}
-    virtual ~CoffeeDec() { delete next; }
-
-    int price() override { return next->price(); }
-    string desc() override { return next->desc(); }
+    virtual ~CoffeeDec() { delete next; };
 };
 
 class WhippedCreamDecorator : public CoffeeDec
