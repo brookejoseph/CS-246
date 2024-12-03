@@ -105,7 +105,6 @@ public:
     }
 };
 
-// Main Function
 int main()
 {
     Video *video = new BasicVideo();
@@ -122,8 +121,6 @@ int main()
         (*it).getDesc();
         cout << endl;
     }
-
-    // Clean up
     delete video;
 
     return 0;
