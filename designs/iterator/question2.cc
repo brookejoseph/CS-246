@@ -21,15 +21,17 @@ public:
 
 class Cat : public Animal
 {
+    Dog *doggy;
+
 public:
+    Cat(Dog *doggy) : doggy(doggy) {};
     void speak() const override { cout << "Meow!" << endl; }
 };
 
 int main()
 {
     Dog dawg(10);
-    Animal *animal = new Cat();
+    Animal *animal = new Cat(&dawg);
     Dog *dog = dynamic_cast<Dog *>(animal); // Returns nullptr
-
     dog->wagTail();
 }
