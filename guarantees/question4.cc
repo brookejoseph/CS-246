@@ -5,10 +5,6 @@
 
 using namespace std;
 
-#include <iostream>
-#include <memory>
-#include <stdexcept>
-
 class Resource
 {
     std::unique_ptr<int> data;
@@ -25,17 +21,39 @@ public:
     }
 };
 
+class K
+{
+public:
+    K()
+    {
+        cout << "k ctor called" << endl;
+    };
+};
+
+class F
+{
+public:
+    F()
+    {
+        cout << "f ctor called" << endl;
+    };
+};
+
+class B : public F
+{
+    int x, y;
+    K k;
+
+public:
+    B(int x, int y) : x(x), y(y), k()
+    {
+        cout << "B ctor called" << endl;
+    };
+};
+
 int main()
 {
-    Resource res;
-    try
-    {
-        res.allocate();
-        res.modify(99); // May throw
-    }
-    catch (const std::exception &e)
-    {
-        std::cout << "Caught exception: " << e.what() << std::endl;
-    }
+    B(9, 2);
+
     return 0;
 }
